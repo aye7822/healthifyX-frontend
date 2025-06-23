@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import  { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "../services/api";
 import Navbar from "../components/Navbar";
@@ -185,16 +185,16 @@ function Home() {
             <div className="col-md-4">
               <h6 className="text-primary">Explore</h6>
               <ul className="list-unstyled small">
-                <li><a href="#" onClick={(e) => { e.preventDefault(); setShowWhyModal(true); }}>Why HealthifyX?</a></li>
-                <li><a href="#">Doctor App</a></li>
-                <li><a href="#">Patient App</a></li>
-                <li><a href="#">Blogs</a></li>
-                <li><a href="#">Careers</a></li>
+                <li><a href="/" onClick={(e) => { e.preventDefault(); setShowWhyModal(true); }}>Why HealthifyX?</a></li>
+                <li><a href="/">Doctor App</a></li>
+                <li><a href="/">Patient App</a></li>
+                <li><a href="/">Blogs</a></li>
+                <li><a href="/">Careers</a></li>
               </ul>
             </div>
             <div className="col-md-4">
               <h6 className="text-primary">Request Demo</h6>
-              <a href="#" className="btn btn-outline-secondary btn-sm mt-2">Request Demo</a>
+              <a href="/" className="btn btn-outline-secondary btn-sm mt-2">Request Demo</a>
             </div>
             <div className="col-md-4">
               <h6 className="text-primary">Testimonials</h6>

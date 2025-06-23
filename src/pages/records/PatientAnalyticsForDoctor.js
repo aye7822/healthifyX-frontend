@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState ,useCallback} from "react";
 import { useParams } from "react-router-dom";
 import axios from "../../services/api";
 import {
@@ -18,7 +18,7 @@ function PatientAnalyticsForDoctor() {
   const [savingSummary, setSavingSummary] = useState(false);
 
 
-const fetchRecords = async () => {
+const fetchRecords = useCallback(async () => {
   try {
     const res = await axios.get(`/records/patient/${id}`, {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -31,10 +31,10 @@ const fetchRecords = async () => {
   } catch (err) {
     console.error("Error fetching patient records", err);
   }
-};
+},[id])
 
 
-const fetchSavedSummary = async () => {
+const fetchSavedSummary = useCallback(async () => {
   try {
     const res = await axios.get(`/records/patient/${id}/summary`, {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -43,11 +43,12 @@ const fetchSavedSummary = async () => {
   } catch (err) {
     console.error("Failed to load saved summary", err);
   }
-};
+},[id])
+
   useEffect(() => {
   fetchRecords();
   fetchSavedSummary();
-}, []);
+}, [fetchRecords, fetchSavedSummary]);
 
 
   const generateSummary = async () => {

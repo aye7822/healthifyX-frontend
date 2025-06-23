@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "../../services/api";
-import { Link } from "react-router-dom";
+
 import { Card, Table, Badge, Button, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
-import { FaUserMd, FaUser, FaCalendarAlt, FaCheck, FaTimes, FaTrash, FaEnvelope } from "react-icons/fa";
+import { FaUserMd, FaUser, FaCalendarAlt, FaCheck, FaTimes, FaTrash} from "react-icons/fa";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function AdminDashboard() {

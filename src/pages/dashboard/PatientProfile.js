@@ -16,7 +16,7 @@ function PatientProfile() {
   const viewRef = useRef(null);
   const editRef = useRef(null);
 
-  const { getRootProps, getInputProps, acceptedFiles } = useDropzone({
+  const { getRootProps, getInputProps } = useDropzone({
     onDrop: (accepted) => setAvatarFile(accepted[0]),
     accept: { "image/*": [".jpg", ".jpeg", ".png"] },
     multiple: false,

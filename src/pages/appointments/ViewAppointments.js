@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,useCallback } from "react";
 import axios from "../../services/api";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -12,7 +12,7 @@ function ViewAppointments() {
   const role = localStorage.getItem("role");
   const token = localStorage.getItem("token");
 
-  const fetchAppointments = async () => {
+  const fetchAppointments =useCallback( async () => {
     try {
       const res = await axios.get("/appointments/mine", {
         headers: { Authorization: `Bearer ${token}` },
@@ -21,7 +21,7 @@ function ViewAppointments() {
     } catch (err) {
       console.error("Failed to load appointments", err);
     }
-  };
+  },[token])
 
   const handleConfirm = async (id) => {
     try {
@@ -82,7 +82,7 @@ function ViewAppointments() {
 
   useEffect(() => {
     fetchAppointments();
-  }, []);
+  }, [fetchAppointments]);
 
   return (
     <>

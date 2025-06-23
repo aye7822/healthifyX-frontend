@@ -25,7 +25,7 @@ const getSeverityLevel = (text = "") => {
 
 function ViewMedicalRecords() {
   const [records, setRecords] = useState([]);
-  const [role, setRole] = useState(localStorage.getItem("role"));
+  const [role] = useState(localStorage.getItem("role"));
   const [specialty, setSpecialty] = useState("");
   const [editingId, setEditingId] = useState(null);
   const [editedRecord, setEditedRecord] = useState({ diagnosis: "", treatment: "" });

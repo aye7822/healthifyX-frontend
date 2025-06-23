@@ -25,7 +25,7 @@ function LocationPicker({ userId }) {
   const handleSave = async () => {
     if (!latLng) return alert("Click on map to select location");
     try {
-      const res = await axios.patch(`/user/${userId}/location`, latLng, {
+       await axios.patch(`/user/${userId}/location`, latLng, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

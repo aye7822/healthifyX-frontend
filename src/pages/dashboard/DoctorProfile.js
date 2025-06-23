@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useDropzone } from "react-dropzone";
 import axios from "../../services/api";
-import { FaUserEdit, FaSave, FaStar } from "react-icons/fa";
+import { FaUserEdit, FaSave } from "react-icons/fa";
 import { QRCodeCanvas } from "qrcode.react";
 import { CSSTransition } from "react-transition-group";
 import "bootstrap/dist/css/bootstrap.min.css";

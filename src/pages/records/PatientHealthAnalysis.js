@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState ,useCallback} from "react";
 import axios from "../../services/api";
 import {
   LineChart,
@@ -17,11 +17,9 @@ function PatientHealthAnalysis() {
   const [records, setRecords] = useState([]);
   const token = localStorage.getItem("token");
 
-  useEffect(() => {
-    fetchRecords();
-  }, []);
 
-  const fetchRecords = async () => {
+
+  const fetchRecords = useCallback(async () => {
     try {
       const res = await axios.get("/records/mine", {
         headers: { Authorization: `Bearer ${token}` },
@@ -30,8 +28,10 @@ function PatientHealthAnalysis() {
     } catch (err) {
       console.error("Error loading records", err);
     }
-  };
-
+  },[token])
+  useEffect(() => {
+    fetchRecords();
+  },  [fetchRecords]);
   // Example metric mapping
   const chartData = records.map((rec, index) => ({
     name: `Visit ${index + 1}`,
