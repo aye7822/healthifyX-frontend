@@ -52,7 +52,7 @@ function Home() {
 
   useEffect(() => {
     window.$crisp = [];
-    window.CRISP_WEBSITE_ID = process.env.REACT_APP_CRISP_ID;
+    window.CRISP_WEBSITE_ID = "d00cabea-a6ac-4a65-b28d-343956003280";
     const s = document.createElement("script");
     s.src = "https://client.crisp.chat/l.js";
     s.async = 1;
